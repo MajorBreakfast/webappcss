@@ -9,17 +9,17 @@ It trys to solve the layout problems that occur when building a web app that run
 
 ## How to use it
 ``` SCSS
-@import "../webappcss/webappcss";
+@import "webappcss";
 ```
 
 ## Design elements
 ### Overview
 WebAppCSS understands these UI element types:
 
-* **Pane**: Parent's width & height
+* **Panes**: Parent's width & height
   * .pane
   * .stack-pane
-* **Block**: Parent's width, as high as content requires
+* **Blocks**: Parent's width, as high as content requires
   * .rack-block
 
 ### Panes
