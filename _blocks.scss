@@ -1,0 +1,26 @@
+.rack-block {
+  display: block;
+  overflow: hidden;
+
+  > div {
+      display: table;
+      width: 100%;
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > .lazy-item { width: 1px; }
+      > .greedy-item { /* Nothing */ }
+      > .gap:before { content: " "; font-size: 0; }
+    }
+}
+
+.center-horizontally-block {
+  text-align: center;
+  > div {
+    display: inline-block;
+    text-align: left;
+  }
+}

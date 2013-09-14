@@ -1,0 +1,53 @@
+// Debug styles
+@mixin debug-outline { outline: 1px dashed white; }
+@mixin debug-label($label) {
+  &:before {
+    content: $label;
+    position: absolute;
+    background: white;
+    padding: 5px;
+  }
+}
+
+// Layout helpers
+@mixin vertically-centered-inner-div {
+  // First inline block which fixes the height (Pseudo element)
+  &::before {
+    content: ''; display: inline-block; height: 100%;
+    vertical-align: middle;
+  }
+  
+  // Second inline block (Real element)
+  > div {
+    display: inline-block; vertical-align: middle;
+    
+    // Make it as big as it's parent (including border and padding)
+    width: 100%; @include box-sizing(border-box);
+    max-height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@mixin centered-inner-div {
+  text-align: center;
+  
+  // First inline block which fixes the height (Pseudo element)
+  &::before {
+    content: ''; display: inline-block; height: 100%;
+    vertical-align: middle;
+  }
+
+  // Second inline block (Real element)
+  > div {
+    display: inline-block; vertical-align: middle;
+    text-align: left; // Reset alignment
+
+    // Make it maximally as big as it's parent
+    // (including border and padding)
+    // Otherwise the too big inline-block would simply disappear :)
+    max-width: 100%; @include box-sizing(border-box);
+  }
+}
