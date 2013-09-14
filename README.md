@@ -3,7 +3,7 @@ WebAppCSS
 
 WebAppCSS is a micro SCSS framework for web apps that adjust intelligently to the available screen real esate. It is compatible with IE10, Chrome, Firefox, the Android Browser, iOS/Mac Safari and others.
 
-It's not meant to be used exclusively but rather in conjunction with a more ambitous framework (like [Foundation 4][http://foundation.zurb.com/]).
+You should use it in conjunction with a more ambitious framework (like [Foundation 4](http://foundation.zurb.com/)).
 
 It trys to solve the layout problems that occur when building a web app that runs on mobile devices where screen real estate is very precious. It provides building blocks and estabilshes conventions for your own designs.
 
@@ -17,7 +17,10 @@ It trys to solve the layout problems that occur when building a web app that run
 WebAppCSS understands these UI element types:
 
 * **Pane**: Parent's width & height
+  * .pane
+  * .stack-pane
 * **Block**: Parent's width, as high as content requires
+  * .rack-block
 
 ### Panes
 Panes try to fill their parent element completely. This makes them ideal for building flexible layouts which adjust to the browser window's size.
@@ -39,10 +42,10 @@ position: absolute;
 top: 0; right: 0; bottom: 0; left: 0;
 ```
 
-`scrollable-...` classes are self-explanatory.
-`debug` class draws a white outline.
+- `scrollable-...` classes are self-explanatory.
+- `debug` class draws a white outline.
 
-If you want to add some padding to the pane, you can do so by specifying a margin.
+If you want to add some padding to the pane, you can do so by specifying a margin:
 ``` html
 <div class="pane" style="margin:20px;">
 </div>
@@ -54,6 +57,7 @@ You can also limit the elements width or height:
 </div>
 ```
 The element simply stays centered in it's space, because the margin is set to "auto" by default.
+
 Note:
 - This centers the pane and not its contents. If you need that take a look at the *vertically-centered-blocks-pane*.
 - Just specifying "max-width:200px;max-height:200px;" will yield the wrong result in IE.
@@ -80,13 +84,16 @@ Gaps have a flexible height. Excess vertical space gets distributed among the ga
 The height of an item is determinded by its content's height.
 
 You can assign a fixed height to gaps like this:
+``` html
 <div class="stack-pane">
   <div>
     <div class="gap" style="height: 20px;"></div>
   </div>
 </div>
 ```
+
 For a minimal height constraint just combine two gaps: One with a fixed height, the other one flexible (min-height css property doesn't work):
+``` html
 <div class="stack-pane">
   <div>
     <div class="gap"></div>
@@ -116,7 +123,7 @@ Side note: Internally the stack pane uses a table. Tables have been around for a
 </div>
 ```
 
-A rack block is perfectly suited for creating things like navigation bars. It arragnes its items horizontally.
+A rack block is perfectly suited for creating things like navigation bars. It arranges its items horizontally.
 
 Like all blocks, its width matches the available horizontal space in its parent element. Excess horizontal space gets distributed among the greedy items and the gaps. This is why you should place at least one of either.
 
@@ -144,6 +151,7 @@ You can assign a fixed or minimal width to gaps like this:
   </div>
 </div>
 ```
+
 For a minimal height constraint just combine two gaps:
 ``` html
 <div class="rack-block">
@@ -155,3 +163,12 @@ For a minimal height constraint just combine two gaps:
 ```
 
 Side note: Internally the rack block uses tables. Tables have been around for a long time and they have great browser support.
+
+#### .center-horizontally-block
+``` html
+<div class="center-horizontally-block">
+  <div>
+    {{blocks, inline, inline-blocks, ...}}
+  </div>
+</div>
+```
