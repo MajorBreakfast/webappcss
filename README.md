@@ -59,7 +59,7 @@ You can also limit the elements width or height:
 The element simply stays centered in it's space, because the margin is set to "auto" by default.
 
 Note:
-- This centers the pane and not its contents. If you need that take a look at the *vertically-centered-blocks-pane*.
+- This centers the pane and not its contents. If you need that take a look at the mixins.
 - Just specifying "max-width:200px;max-height:200px;" will yield the wrong result in IE.
 
 #### .stack-pane
@@ -164,11 +164,14 @@ For a minimal height constraint just combine two gaps:
 
 Side note: Internally the rack block uses tables. Tables have been around for a long time and they have great browser support.
 
-#### .center-horizontally-block
+#### Mixins
+- `@mixin vertically-centered-inner-div`
+- `@mixin horizontally-centered-inner-div`
+- `@mixin centered-inner-div`
+
 ``` html
-<div class="center-horizontally-block">
-  <div>
-    {{blocks, inline, inline-blocks, ...}}
+<div><!-- Your element -->
+  <div><!-- This div is centered -->
   </div>
 </div>
 ```

@@ -31,6 +31,17 @@
   }
 }
 
+@mixin horizontally-centered-inner-div {
+  text-align: center;
+
+  > div {
+    display: inline-block;
+    text-align: left; // Reset alignment
+    
+    max-width: 100%; @include box-sizing(border-box);
+  }
+}
+
 @mixin centered-inner-div {
   text-align: center;
   
