@@ -1,4 +1,8 @@
-.rack-block {
+@mixin rack-block-lazy-item { width: 1px; }
+@mixin rack-block-greedy-item { /* Nothing */ }
+@mixin rack-block-gap { content: " "; font-size: 0; }
+
+@mixin rack-block {
   display: block;
   overflow: hidden;
 
@@ -11,16 +15,10 @@
         vertical-align: middle;
       }
 
-      > .lazy-item { width: 1px; }
-      > .greedy-item { /* Nothing */ }
-      > .gap:before { content: " "; font-size: 0; }
+      > .lazy-item { @include rack-block-lazy-item; }
+      > .greedy-item { @include rack-block-greedy-item; }
+      > .gap:before { @include rack-block-gap }
     }
 }
 
-.center-horizontally-block {
-  text-align: center;
-  > div {
-    display: inline-block;
-    text-align: left;
-  }
-}
+.rack-block { @include rack-block; }

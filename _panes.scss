@@ -1,4 +1,4 @@
-.pane {
+@mixin pane {
   display: block;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -22,10 +22,14 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
-
 }
 
-.stack-pane {
+.pane { @include pane; }
+
+@mixin stack-pane-item { height: 1px; }
+@mixin stack-pane-gap { /* Nothing */ }
+
+@mixin stack-pane {
   display: block;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -43,7 +47,9 @@
 
     > * {  display: table-row; }
 
-    > .item { height: 1px; }
-    > .gap > div { /* Nothing */ }
+    > .item { @include stack-pane-item; }
+    > .gap > div { @include stack-pane-gap; }
   }
 }
+
+.stack-pane { @include stack-pane; }
