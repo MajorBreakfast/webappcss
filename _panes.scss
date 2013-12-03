@@ -3,43 +3,13 @@
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   margin: auto;
-  
-  &.debug { @include debug-outline; }
-  
-  &.clip { overflow: hidden; }
-
-  &.scrollable-x {
-    overflow-x: auto; overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  &.scrollable-y {
-    overflow-x: hidden; overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  &.scrollable-xy {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-  }
 }
-
-.pane { @include pane; }
 
 @mixin stack-pane-item { height: 1px; }
 @mixin stack-pane-gap { /* Nothing */ }
 
 @mixin stack-pane {
-  display: block;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  
-  &.clip { overflow: hidden; }
-
-  &.scrollable-y {
-    overflow-x: hidden; overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+  @include pane;
 
   > div {
     display: table;
@@ -51,5 +21,3 @@
     > .gap > div { @include stack-pane-gap; }
   }
 }
-
-.stack-pane { @include stack-pane; }

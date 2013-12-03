@@ -5,60 +5,13 @@
     content: $label;
     position: absolute;
     background: white;
+    color: black;
     padding: 5px;
   }
 }
 
-// Layout helpers
-@mixin vertically-centered-inner-div {
-  // First inline block which fixes the height (Pseudo element)
-  &::before {
-    content: ''; display: inline-block; height: 100%;
-    vertical-align: middle;
-  }
-  
-  // Second inline block (Real element)
-  > div {
-    display: inline-block; vertical-align: middle;
-    
-    // Make it as big as it's parent (including border and padding)
-    width: 100%; @include box-sizing(border-box);
-    max-height: 100%;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-@mixin horizontally-centered-inner-div {
-  text-align: center;
-
-  > div {
-    display: inline-block;
-    text-align: left; // Reset alignment
-    
-    max-width: 100%; @include box-sizing(border-box);
-  }
-}
-
-@mixin centered-inner-div {
-  text-align: center;
-  
-  // First inline block which fixes the height (Pseudo element)
-  &::before {
-    content: ''; display: inline-block; height: 100%;
-    vertical-align: middle;
-  }
-
-  // Second inline block (Real element)
-  > div {
-    display: inline-block; vertical-align: middle;
-    text-align: left; // Reset alignment
-
-    // Make it maximally as big as it's parent
-    // (including border and padding)
-    // Otherwise the too big inline-block would simply disappear :)
-    max-width: 100%; @include box-sizing(border-box);
-  }
+// Smooth scrolling on iOS
+@mixin scrollable-y {
+  overflow-x: hidden; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }

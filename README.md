@@ -1,6 +1,8 @@
 WebAppCSS
 =========
 
+Note: I'm activly using this framework in a project of mine and I develop it as I go along.
+
 WebAppCSS is a micro SCSS framework for web apps that adjust intelligently to the available screen real esate. It is compatible with IE10, Chrome, Firefox, the Android Browser, iOS/Mac Safari and others.
 
 You should use it in conjunction with a more ambitious framework (like [Foundation 4](http://foundation.zurb.com/)).
@@ -27,7 +29,7 @@ Panes try to fill their parent element completely. This makes them ideal for bui
 
 #### .pane
 ``` html
-<div class="pane [clip|scrollable-x|scrollable-y|scrollable-xy] [debug]">
+<div class="pane [debug]">
   {{content: panes, blocks, inline, inline-blocks, ...}}
 </div>
 ```
@@ -42,7 +44,6 @@ position: absolute;
 top: 0; right: 0; bottom: 0; left: 0;
 ```
 
-- `scrollable-...` classes are self-explanatory.
 - `debug` class draws a white outline.
 
 If you want to add some padding to the pane, you can do so by specifying a margin:
@@ -64,7 +65,7 @@ Note:
 
 #### .stack-pane
 ``` html
-<div class="stack-pane [clip|scrollable-y]">
+<div class="stack-pane">
   <div>
     ...
     <div class="item">
@@ -165,13 +166,4 @@ For a minimal height constraint just combine two gaps:
 Side note: Internally the rack block uses tables. Tables have been around for a long time and they have great browser support.
 
 #### Mixins
-- `@mixin vertically-centered-inner-div`
-- `@mixin horizontally-centered-inner-div`
-- `@mixin centered-inner-div`
-
-``` html
-<div><!-- Your element -->
-  <div><!-- This div is centered -->
-  </div>
-</div>
-```
+- `@mixin scrollable-y` Smooth scrolling on iOS
