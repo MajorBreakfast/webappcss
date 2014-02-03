@@ -5,9 +5,11 @@ Note: I'm activly using this framework in a project of mine and I develop it as 
 
 WebAppCSS is a micro SCSS framework for web apps that adjust intelligently to the available screen real esate. It is compatible with IE10, Chrome, Firefox, the Android Browser, iOS/Mac Safari and others.
 
-You should use it in conjunction with a more ambitious framework (like [Foundation 4](http://foundation.zurb.com/)).
+You should use it in conjunction with a more ambitious framework (like [Foundation 4](http://foundation.zurb.com/)) or do it all yourself optionally using a mixin library (like [Scut](http://davidtheclark.github.io/scut/)).
 
 It trys to solve the layout problems that occur when building a web app that runs on mobile devices where screen real estate is very precious. It provides building blocks and estabilshes conventions for your own designs.
+
+It solves these layout problems using table styles. Soon flexbox will make hacks like these unnecessary.
 
 ## How to use it
 ``` SCSS
